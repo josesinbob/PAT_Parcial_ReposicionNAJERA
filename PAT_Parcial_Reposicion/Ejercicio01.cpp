@@ -1,19 +1,16 @@
 #include "Ejercicio01.h"
 
-Node<int>* reverseList(Node<int>* head)
-{
-    Node<int>* current = head;
-    Node<int>* prev = nullptr;
-    Node<int>* next = nullptr;
-    
-    while (current != nullptr)
-    {
-        next = current->next;
-        current->next = prev;
-        prev = current;
-        current = next;
+template <typename T>
+Node<T>* reverseList(Node<T>* head) {
+    Node<T>* prev = nullptr;
+
+    while (head != nullptr) {
+        auto next = head->next;
+        head->next = prev;
+        prev = head;
+        head = next;
     }
-    
+
     return prev;
 }
 
